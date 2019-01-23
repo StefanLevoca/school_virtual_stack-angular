@@ -1,0 +1,45 @@
+<div *ngIf="status=='error'" class="alert alert-danger" role="alert">
+  Chyba komunikácie
+</div>
+<h2>{{title}}</h2>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Brand</th>
+      <th scope="col">Model</th>
+      <th scope="col">Drive type</th>
+      <th scope="col">Drive size</th>
+      <th scope="col">Processor</th>
+      <th scope="col">RAM</th>
+      <th scope="col">OS</th>
+      <th scope="col">Office</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let computer of computers" (click)="selectComputerClicked(computer)" (dblclick)="editComputerClicked(computer)">
+      <td scope="row">{{computer.brand}}</td>
+      <td scope="row">{{computer.model}}</td>
+      <td scope="row">{{computer.driveType}}</td>
+      <td scope="row">{{computer.driveSize}}</td>
+      <td scope="row">{{computer.processor}}</td>
+      <td scope="row">{{computer.ram}}</td>
+      <td scope="row">{{computer.os}}</td>
+      <td scope="row">{{computer.office}}</td>
+      <td><button class="btn btn-danger" (click)="deleteComputerClicked(computer)">X</button></td>
+    </tr>
+  </tbody>
+</table>
+<p *ngIf="selected">Selected:
+  {{selected.brand}}
+  {{selected.model}}
+  {{selected.driveType}}
+  {{selected.driveSize}}
+  {{selected.processor}}
+  {{selected.ram}}
+  {{selected.os}}
+  {{selected.office}}
+</p>
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#computerEditModal" (click)="addComputerButtonClicked()">
+  Pridať počítač
+</button>
+<app-computer-edit (savedDevice)="editedComputerSaved($event)" [computer]="editedComputer" [actionWithComputer]="action"></app-computer-edit>

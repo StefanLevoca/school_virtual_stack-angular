@@ -1,0 +1,36 @@
+<div *ngIf="status=='error'" class="alert alert-danger" role="alert">
+  Chyba komunikácie
+</div>
+<h2>{{title}}</h2>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Brand</th>
+      <th scope="col">Model</th>
+      <th scope="col">Light output</th>
+      <th scope="col">Projector range</th>
+      <th scope="col">Interactive</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let projector of projectors" (click)="selectProjectorClicked(projector)" (dblclick)="editProjectorClicked(projector)">
+      <td scope="row">{{projector.brand}}</td>
+      <td scope="row">{{projector.model}}</td>
+      <td scope="row">{{projector.lightOutput}}</td>
+      <td scope="row">{{projector.projectorRange}}</td>
+      <td scope="row">{{projector.interactive}}</td>
+      <td><button class="btn btn-danger" (click)="deleteProjectorClicked(u)">X</button></td>
+    </tr>
+  </tbody>
+</table>
+<p *ngIf="selected">Selected:
+  {{selected.brand}}
+  {{selected.model}}
+  {{selected.lightOutput}}
+  {{selected.projectorRange}}
+  {{selected.interactive}}
+</p>
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#projectorEditModal" (click)="addProjectorButtonClicked()">
+  Pridať projektor
+</button>
+<app-projector-edit (savedProjector)="editedProjectorSaved($event)" [projector]="editedProjector" [actionWithProjector]="action"></app-projector-edit>

@@ -1,0 +1,75 @@
+<div *ngIf="status=='error'" class="alert alert-danger" role="alert">
+  Chyba komunikácie
+</div>
+<h2>{{title}}</h2>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Price</th>
+      <th scope="col">Count</th>
+      <th scope="col">Name</th>
+      <th scope="col">Type</th>
+      <th scope="col">Classroom</th>
+      <th scope="col">Responsible person</th>
+      <th scope="col">Note</th>
+      <th scope="col">Date of obtain</th>
+      <th scope="col">Serial number</th>
+      <th scope="col">Form of obtain</th>
+      <th scope="col">Bank account</th>
+      <th scope="col">Invoice number</th>
+      <th scope="col">Date of discard</th>
+      <th scope="col">Reason of discard</th>
+      <th scope="col">Form of discard</th>
+      <th scope="col">Computer</th>
+      <th scope="col">Projector</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let device of devices" (click)="selectDeviceClicked(device)" (dblclick)="editDeviceClicked(device)">
+      <td scope="row">{{device.id}}</td>
+      <td scope="row">{{device.price}}</td>
+      <td scope="row">{{device.count}}</td>
+      <td scope="row">{{device.name}}</td>
+      <td scope="row">{{device.type}}</td>
+      <td><span *ngFor="let classroom of device.classroom">{{classroom.id}}, </span></td>
+      <td><span *ngFor="let user of device.user">{{user.id}}, </span></td>
+      <td scope="row">{{device.note}}</td>
+      <td scope="row">{{device.dateOfObtain}}</td>
+      <td scope="row">{{device.serialNumber}}</td>
+      <td scope="row">{{device.formOfObtain}}</td>
+      <td scope="row">{{device.bankAccount}}</td>
+      <td scope="row">{{device.invoiceNumber}}</td>
+      <td scope="row">{{device.dateOfDiscard}}</td>
+      <td scope="row">{{device.reasonOfDiscard}}</td>
+      <td scope="row">{{device.formOfDiscard}}</td>
+      <td scope="row">{{device.computer}}</td>
+      <td><span *ngFor="let projector of device.projector">{{projector.model}}, </span></td>
+      <td><button class="btn btn-danger" (click)="deleteDeviceClicked(device)">X</button></td>
+    </tr>
+  </tbody>
+</table>
+<p *ngIf="selected">Selected:
+  {{selected.id}}
+  {{selected.price}}
+  {{selected.count}}
+  {{selected.name}}
+  {{selected.type}}
+  {{selected.classroom}}
+  {{selected.responsiblePerson}}
+  {{selected.note}}
+  {{selected.dateOfObtain}}
+  {{selected.serialNumber}}
+  {{selected.formOfObtain}}
+  {{selected.bankAccount}}
+  {{selected.invoiceNumber}}
+  {{selected.dateOfDiscard}}
+  {{selected.reasonOfDiscard}}
+  {{selected.formOfDiscard}}
+  {{selected.computer}}
+  {{selected.projector}}
+</p>
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#deviceEditModal" (click)="addDeviceButtonClicked()">
+  Pridať zariadenie
+</button>
+<app-device-edit (savedDevice)="editedDeviceSaved($event)" [device]="editedDevice" [actionWithDevice]="action"></app-device-edit>
