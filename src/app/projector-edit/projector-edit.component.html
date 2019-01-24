@@ -1,3 +1,38 @@
-<p>
-  projector-edit works!
-</p>
+<!-- Modal -->
+<form (ngSubmit)="onSubmit()" #myForm="ngForm">
+  <div class="modal fade" id="projectorEditModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">{{title}}</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <p>Hodnota modelu: {{actualProjector}}</p>
+        <div class="modal-body form-group">
+          <label>Brand: </label> <input class="form-control" type="text" [(ngModel)]="projector.brand" name="projectorBrand"
+            required #brandModel="ngModel">
+          <div [hidden]="brandModel.valid" class="alert alert-danger">Značka musí byť vyplnená</div>
+          <label>Model: </label><input class="form-control" type="text" [(ngModel)]="projector.model" name="projectorModel"
+            required #modelModel="ngModel">
+          <div [hidden]="modelModel.valid" class="alert alert-danger">Model musí byť vyplnený</div>
+          <label>Light output: </label><input class="form-control" type="number" [(ngModel)]="projector.lightOutput"
+            name="projectorLightOutput" required #lightOutputModel="ngModel">
+          <div [hidden]="lightOutputModel.valid" class="alert alert-danger">Svetelný tok musí byť vyplnený</div>
+          <label>Projector range: </label><input class="form-control" type="text" [(ngModel)]="projector.projectorRange"
+            name="projectorProjectorRange" required #projectorRangeModel="ngModel">
+          <div [hidden]="projectorRangeModel.valid" class="alert alert-danger">Dosah projektora musí byť vyplnený</div>
+          <label>Interactive: </label><input class="form-control" type="number" [(ngModel)]="projector.interactive"
+            name="projectroInteractive" required #interactiveModel="ngModel">
+          <div [hidden]="interactiveModel.valid" class="alert alert-danger">Interaktívnosť musí byť vyplnená</div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary" [disabled]="!myForm.form.valid">Save</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

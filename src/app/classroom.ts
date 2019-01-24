@@ -13,10 +13,10 @@ export class Classroom {
     }
     constructor(
         private _name: String,
-        private _id: Number       
-    ) {}
+        private _id: Number
+    ) { }
 
     public clone() {
         return new Classroom(this._name, this._id);
-      }
+    }
 }

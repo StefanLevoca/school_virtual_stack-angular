@@ -1,3 +1,43 @@
-<p>
-  user-edit works!
-</p>
+<!-- Modal -->
+<form (ngSubmit)="onSubmit()" #myForm="ngForm">
+  <div class="modal fade" id="userEditModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">{{title}}</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <p>Hodnota modelu: {{actualUser}}</p>
+        <div class="modal-body form-group">
+          <label>ID: </label> <input class="form-control" type="number" [(ngModel)]="user.id" name="userId" required
+            #idModel="ngModel">
+          <div [hidden]="idModel.valid" class="alert alert-danger">ID musí byť vyplnené</div>
+          <label>Degree: </label><input class="form-control" type="text" [(ngModel)]="user.degree" name="userDegree"
+            required #degreeModel="ngModel">
+          <div [hidden]="degreeModel.valid" class="alert alert-danger">Stupeň musí byť vyplnený</div>
+          <label>Name: </label><input class="form-control" type="text" [(ngModel)]="user.name" name="userName" required
+            #nameModel="ngModel">
+          <div [hidden]="nameModel.valid" class="alert alert-danger">Meno musí byť vyplnené</div>
+          <label>Surname: </label><input class="form-control" type="text" [(ngModel)]="user.surname" name="userSurname"
+            required #surnameModel="ngModel">
+          <div [hidden]="surnameModel.valid" class="alert alert-danger">Priezvisko musí byť vyplnené</div>
+          <label>Username: </label><input class="form-control" type="text" [(ngModel)]="user.username" name="userUsername"
+            required #usernameModel="ngModel">
+          <div [hidden]="usernameModel.valid" class="alert alert-danger">Používateľské meno musí byť vyplnené</div>
+          <label>Password: </label><input class="form-control" type="text" [(ngModel)]="user.password" name="userPassword"
+            required #passwordModel="ngModel">
+          <div [hidden]="passwordModel.valid" class="alert alert-danger">Heslo meno musí byť vyplnené</div>
+          <label>Permissions: <input class="form-control" type="checkbox" [(ngModel)]="user.permissions" name="userPermissions"></label>
+          <label>My rights: <input class="form-control" type="checkbox" [(ngModel)]="user.myRights" name="userMyRights"></label>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary" [disabled]="!myForm.form.valid">Save</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

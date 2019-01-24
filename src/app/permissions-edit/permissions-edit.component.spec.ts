@@ -8,9 +8,9 @@ describe('PermissionsEditComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PermissionsEditComponent ]
+      declarations: [PermissionsEditComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

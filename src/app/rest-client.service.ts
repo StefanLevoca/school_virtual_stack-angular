@@ -83,7 +83,7 @@ export class RestClientService {
         return this.http.delete(this.urlDevice + '/' + device.id).pipe(map(_ => true));
     }
 
-    public getPerimssions(): Observable<Permissions[]> {
+    public getPermissions(): Observable<Permissions[]> {
         return this.http.get<Permissions[]>(this.urlPermission);
     }
 
@@ -91,15 +91,15 @@ export class RestClientService {
     //     return this.http.post<Permissions>(this.urlPermission, permissions);
     //  }
 
-    public addPerimssion(permissions: Permissions): Observable<boolean> {
+    public addPermission(permissions: Permissions): Observable<boolean> {
         return this.http.post(this.urlPermission, permissions).pipe(map(_ => true));
     }
 
-    public savePerimssion(permissions: Permissions): Observable<boolean> {
+    public savePermission(permissions: Permissions): Observable<boolean> {
         return this.http.put(this.urlPermission, permissions).pipe(map(_ => true));
     }
 
-    public deletePerimssion(permissions: Permissions): Observable<boolean> {
+    public deletePermission(permissions: Permissions): Observable<boolean> {
         return this.http.delete(this.urlPermission + '/' + permissions.userId).pipe(map(_ => true));
     }
 

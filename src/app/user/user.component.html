@@ -12,7 +12,7 @@
       <th scope="col">Username</th>
       <th scope="col">Password</th>
       <th scope="col">Permissions</th>
-    <!-- //  <th scope="col">My rights</th> -->
+      <th scope="col">My rights</th>
     </tr>
   </thead>
   <tbody>
@@ -24,7 +24,7 @@
       <td scope="row">{{user.username}}</td>
       <td scope="row">{{user.password}}</td>
       <td scope="row">{{user.permissions}}</td>
-      <!-- <td><span *ngFor="let permission of user.permissions">{{permission.rightUserAdministration}}, </span></td> -->
+      <td><span *ngFor="let permission of user.permissions">{{permission.rightUserAdministration}}, </span></td>
       <td><button class="btn btn-danger" (click)="deleteUserClicked(u)">X</button></td>
     </tr>
   </tbody>
@@ -37,7 +37,7 @@
   {{selected.username}}
   {{selected.password}}
   {{selected.permissions}}
-  <!-- {{selected.myRights}} -->
+  {{selected.myRights}}
 </p>
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#userEditModal" (click)="addUserButtonClicked()">
   Pridať používateľa

@@ -30,14 +30,14 @@ export class Projector {
         this._brand = value;
     }
     constructor(
-        private _brand: String,   
+        private _brand: String,
         private _model: String,
         private _lightOutput: number,
         private _projectorRange: String,
         private _interactive: number
-    ) {}
+    ) { }
 
     public clone() {
         return new Projector(this._brand, this._model, this._lightOutput, this._projectorRange, this._interactive);
-      }
+    }
 }

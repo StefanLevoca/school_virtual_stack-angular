@@ -1,12 +1,12 @@
 import { Permissions } from './permissions';
 
 export class User {
-    //  public get myRights(): Permissions[] {
-    //      return this._myRights;
-    //   }
-    //  public set myRights(value: Permissions[]) {
-    //      this._myRights = value;
-    //  }
+    public get myRights(): Permissions[] {
+        return this._myRights;
+    }
+    public set myRights(value: Permissions[]) {
+        this._myRights = value;
+    }
     public get permissions(): Set<String> {
         return this._permissions;
     }
@@ -59,14 +59,14 @@ export class User {
         private _username: String,
         private _password: String,
         private _permissions: Set<String>,
-        //   private _myRights: Permissions[]
+        private _myRights: Permissions[]
     ) { }
 
     public clone() {
-        //   let permissions: Permissions[] = [];
-        //   for (let p of this._myRights) {
-        //       permissions.push(p.clone());
-        //  }
-        return new User(this._id, this._degree, this._name, this._surname, this._username, this._password, this._permissions);
+        let myRights: Permissions[] = [];
+        for (let p of this._myRights) {
+            myRights.push(p.clone());
+        }
+        return new User(this._id, this._degree, this._name, this._surname, this._username, this._password, this._permissions, myRights);
     }
 }

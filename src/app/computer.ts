@@ -56,9 +56,9 @@ export class Computer {
         private _ram: number,
         private _os: String,
         private _office: String,
-    ) {}
+    ) { }
 
     public clone() {
         return new Computer(this._brand, this._model, this._driveType, this._driveSize, this._processor, this._ram, this._os, this._office);
-      }
+    }
 }

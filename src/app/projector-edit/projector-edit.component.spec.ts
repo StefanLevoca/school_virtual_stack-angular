@@ -8,9 +8,9 @@ describe('ProjectorEditComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ProjectorEditComponent ]
+      declarations: [ProjectorEditComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

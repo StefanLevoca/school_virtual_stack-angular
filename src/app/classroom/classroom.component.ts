@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Classroom } from '../classroom';
 import { RestClientService } from '../rest-client.service';
+import { Observable } from 'rxjs';
+declare var $: any;
 
 @Component({
   selector: 'app-classroom',
@@ -8,17 +10,72 @@ import { RestClientService } from '../rest-client.service';
   styleUrls: ['./classroom.component.css']
 })
 export class ClassroomComponent implements OnInit {
-  private classrooms: Classroom[] = [];
-  private selected: Classroom;
+  private title: string = "Zoznam tried";
+  private classroom: Classroom[] = [];
+  private selectedClassroom: Classroom;
+  private action = 'add';
+  private editedClassroom = new Classroom("", -1);
+  private status = 'ok';
 
   constructor(private restService: RestClientService) { }
 
   ngOnInit() {
-    this.restService.getClassrooms()
-      .subscribe(c => this.classrooms = c);
+    this.getClassroomsFromServer();
   }
 
-  selectClassroom(classroom: Classroom): void {
-    this.selected = classroom;
+  getClassroomsFromServer() {
+    let pipe: Observable<Classroom[]> = this.restService.getClassrooms();
+    pipe.subscribe(classroomsFromPipe => {
+      this.classroom = classroomsFromPipe
+    },
+      errorMsg => {
+        this.status = 'error';
+        console.log("chyba komunikacie: " + JSON.stringify(errorMsg));
+      });
+  }
+
+  selectClassroomClicked(classroom: Classroom) {
+    this.selectedClassroom = classroom;
+  }
+
+  editedClassroomSaved(classroom: Classroom) {
+    if (this.action == 'add') {
+      this.restService.addClassroom(classroom).subscribe(ok => {
+        this.getClassroomsFromServer();
+      },
+        errorMsg => {
+          this.status = 'error';
+          console.log("chyba komunikacie: " + JSON.stringify(errorMsg));
+        });
+    } else {
+      this.restService.saveClassroom(classroom).subscribe(ok => {
+        this.getClassroomsFromServer();
+      },
+        errorMsg => {
+          this.status = 'error';
+          console.log("chyba komunikacie: " + JSON.stringify(errorMsg));
+        });
+    }
+  }
+
+  addClassroomButtonClicked() {
+    this.action = 'add';
+    this.editedClassroom = new Classroom("", -1);
+  }
+
+  editClassroomClicked(classroom: Classroom) {
+    this.action = 'edit';
+    this.editedClassroom = JSON.parse(JSON.stringify(classroom));
+    $('#classroomEditModal').modal('show');
+  }
+
+  deleteClassroomClicked(classroom: Classroom) {
+    this.restService.deleteClassroom(classroom).subscribe(ok => {
+      this.getClassroomsFromServer();
+    },
+      errorMsg => {
+        this.status = 'error';
+        console.log("chyba komunikacie: " + JSON.stringify(errorMsg));
+      });
   }
 }

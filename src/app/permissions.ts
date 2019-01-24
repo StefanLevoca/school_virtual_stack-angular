@@ -49,9 +49,9 @@ export class Permissions {
         private _rightDiscardDevice: boolean,
         private _rightDeleteDevice: boolean,
         private _rightClassroomAdministration: boolean
-    ) {}
+    ) { }
 
     public clone() {
         return new Permissions(this._userId, this._rightUserAdministration, this._rightAddDevice, this._rightEditDevice, this._rightDiscardDevice, this._rightDeleteDevice, this._rightClassroomAdministration);
-      }
+    }
 }

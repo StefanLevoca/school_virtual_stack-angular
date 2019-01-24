@@ -8,9 +8,9 @@ describe('ComputerEditComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ComputerEditComponent ]
+      declarations: [ComputerEditComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
