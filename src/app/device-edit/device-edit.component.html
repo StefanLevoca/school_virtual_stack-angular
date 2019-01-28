@@ -14,10 +14,10 @@
         <div class="modal-body form-group">
           <label>Brand: </label> <input class="form-control" type="text" [(ngModel)]="device.brand" name="deviceBrand"
             required #brandModel="ngModel">
-          <div [hidden]="brandModel.valid" class="alert alert-danger">Značka musí byť vyplnená</div>
+          <!--          <div [hidden]="brandModel.valid" class="alert alert-danger">Značka musí byť vyplnená</div> -->
           <label>ID: </label><input class="form-control" type="number" [(ngModel)]="device.id" name="deviceId" required
             #idModel="ngModel">
-          <div [hidden]="idModel.valid" class="alert alert-danger">ID musí byť vyplnené</div>
+          <!--  <div [hidden]="idModel.valid" class="alert alert-danger">ID musí byť vyplnené</div> -->
           <label>Price: </label><input class="form-control" type="number" [(ngModel)]="device.price" name="devicePrice"
             required #priceModel="ngModel">
           <div [hidden]="priceModel.valid" class="alert alert-danger">Cena musí byť vyplnená</div>
@@ -26,39 +26,39 @@
           <div [hidden]="countModel.valid" class="alert alert-danger">Počet musí byť vyplnený</div>
           <label>Name: </label><input class="form-control" type="text" [(ngModel)]="device.name" name="deviceName"
             required #nameModel="ngModel">
-          <div [hidden]="nameModel.valid" class="alert alert-danger">Meno musí byť vyplnené</div>
+          <!--       <div [hidden]="nameModel.valid" class="alert alert-danger">Meno musí byť vyplnené</div> -->
           <label>Type: </label><input class="form-control" type="text" [(ngModel)]="device.type" name="deviceType"
             required #typeModel="ngModel">
-          <div [hidden]="typeModel.valid" class="alert alert-danger">Typ musí byť vyplnený</div>
+          <!--    <div [hidden]="typeModel.valid" class="alert alert-danger">Typ musí byť vyplnený</div>  -->
           <label>Classroom: <input class="form-control" type="checkbox" [(ngModel)]="device.classroom" name="deviceClassroom"></label>
           <label>Responsible person: <input class="form-control" type="checkbox" [(ngModel)]="device.responsiblePerson"
               name="deviceResponsiblePerson"></label>
           <label>Note: </label><input class="form-control" type="text" [(ngModel)]="device.note" name="deviceNote"
             required #noteModel="ngModel">
-          <div [hidden]="noteModel.valid" class="alert alert-danger">Poznámka meno musí byť vyplnená</div>
+          <!--      <div [hidden]="noteModel.valid" class="alert alert-danger">Poznámka meno musí byť vyplnená</div>  -->
           <label>Date of obtain: </label> <input type="text" ngbDatepicker [(ngModel)]="date" />
           <label>Serial number: </label> <input class="form-control" type="text" [(ngModel)]="device.serialNumber" name="deviceSerialNumber"
             required #serialNumberModel="ngModel">
-          <div [hidden]="serialNumberModel.valid" class="alert alert-danger">Seriové číslo musí byť vyplnené</div>
+          <!--    <div [hidden]="serialNumberModel.valid" class="alert alert-danger">Seriové číslo musí byť vyplnené</div>  -->
           <label>Form of obtain: </label> <input class="form-control" type="text" [(ngModel)]="device.formOfObtain"
             name="deviceFormOfObtain" required #formOfObtainModel="ngModel">
-          <div [hidden]="formOfObtainModel.valid" class="alert alert-danger">Spôsob získania musí byť vyplnený</div>
+          <!--      <div [hidden]="formOfObtainModel.valid" class="alert alert-danger">Spôsob získania musí byť vyplnený</div>  -->
           <label>Bank account: </label> <input class="form-control" type="text" [(ngModel)]="device.bankAccount" name="deviceBankAccount"
             required #bankAccountModel="ngModel">
-          <div [hidden]="bankAccountModel.valid" class="alert alert-danger">Bankový účet musí byť vyplnený</div>
+          <!--      <div [hidden]="bankAccountModel.valid" class="alert alert-danger">Bankový účet musí byť vyplnený</div>  -->
           <label>Invoice number: </label> <input class="form-control" type="text" [(ngModel)]="device.invoiceNumber"
             name="deviceInvoiceNumber" required #invoiceNumberModel="ngModel">
-          <div [hidden]="invoiceNumberModel.valid" class="alert alert-danger">Číslo faktúry musí byť vyplnené</div>
+          <!--      <div [hidden]="invoiceNumberModel.valid" class="alert alert-danger">Číslo faktúry musí byť vyplnené</div>  -->
           <label>Date of discard: </label> <input type="text" ngbDatepicker [(ngModel)]="date" />
           <label>Reason of discard: </label> <input class="form-control" type="text" [(ngModel)]="device.reasonOfDiscard"
             name="deviceReasonOfDiscard" required #reasonOfDiscardModel="ngModel">
-          <div [hidden]="reasonOfDiscardModel.valid" class="alert alert-danger">Dôvod odpisu musí byť vyplnený</div>
+          <!--      <div [hidden]="reasonOfDiscardModel.valid" class="alert alert-danger">Dôvod odpisu musí byť vyplnený</div>  -->
           <label>Form of discard: </label> <input class="form-control" type="text" [(ngModel)]="device.formOfDiscard"
             name="deviceFormOfDiscard" required #formOfDiscardModel="ngModel">
-          <div [hidden]="formOfDiscardModel.valid" class="alert alert-danger">Forma odpisu musí byť vyplnená</div>
+          <!--      <div [hidden]="formOfDiscardModel.valid" class="alert alert-danger">Forma odpisu musí byť vyplnená</div> -->
           <label>Computer: </label> <input class="form-control" type="number" [(ngModel)]="device.computer" name="deviceComputer"
             required #computerModel="ngModel">
-          <div [hidden]="computerModel.valid" class="alert alert-danger">Počítač musí byť vyplnený</div>
+          <!--      <div [hidden]="computerModel.valid" class="alert alert-danger">Počítač musí byť vyplnený</div> -->
           <label>Projector: <input class="form-control" type="checkbox" [(ngModel)]="device.projector" name="deviceProjector"></label>
         </div>
         <div class="modal-footer">

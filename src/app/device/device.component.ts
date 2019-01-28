@@ -17,7 +17,7 @@ export class DeviceComponent implements OnInit {
   private devices: Device[] = [];
   private selectedDevice: Device;
   private action = 'add';
-  private editedDevice = new Device("", -1, -1, -1, "", "", new Classroom[""], new User[""], "", new Date, "", "", "", "", new Date, "", "", -1, new Projector[""]);
+  private editedDevice = new Device(-1, "", new User[""], new Classroom[""], "", -1, -1, "", "", new Date, "", "", "", "", new Date, "", "", -1, new Projector[""]);
   private status = 'ok';
 
   constructor(private restService: RestClientService) { }
@@ -63,7 +63,7 @@ export class DeviceComponent implements OnInit {
 
   addDeviceButtonClicked() {
     this.action = 'add';
-    this.editedDevice = new Device("", -1, -1, -1, "", "", new Classroom[""], new User[""], "", new Date, "", "", "", "", new Date, "", "", -1, new Projector[""]);
+    this.editedDevice = new Device(-1, "", new User[""], new Classroom[""], "", -1, -1, "", "", new Date, "", "", "", "", new Date, "", "", -1, new Projector[""]);
   }
 
   editDeviceClicked(device: Device) {

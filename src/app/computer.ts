@@ -50,12 +50,12 @@ export class Computer {
     constructor(
         private _brand: String,
         private _model: String,
-        private _driveType: String,
-        private _driveSize: number,
-        private _processor: String,
-        private _ram: number,
-        private _os: String,
-        private _office: String,
+        private _driveType?: String,
+        private _driveSize?: number,
+        private _processor?: String,
+        private _ram?: number,
+        private _os?: String,
+        private _office?: String,
     ) { }
 
     public clone() {

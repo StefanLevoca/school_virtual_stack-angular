@@ -32,9 +32,9 @@ export class Projector {
     constructor(
         private _brand: String,
         private _model: String,
-        private _lightOutput: number,
-        private _projectorRange: String,
-        private _interactive: number
+        private _lightOutput?: number,
+        private _projectorRange?: String,
+        private _interactive?: number
     ) { }
 
     public clone() {

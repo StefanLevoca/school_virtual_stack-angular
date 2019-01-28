@@ -118,25 +118,25 @@ export class Device {
         this._brand = value;
     }
     constructor(
-        private _brand: String,
-        private _id: Number,
         private _price: Number,
-        private _count: Number,
         private _name: String,
-        private _type: String,
-        private _classroom: Classroom[],
         private _responsiblePerson: User[],
-        private _note: String,
-        private _dateOfObtain: Date,
-        private _serialNumber: String,
-        private _formOfObtain: String,
-        private _bankAccount: String,
-        private _invoiceNumber: String,
-        private _dateOfDiscard: Date,
-        private _reasonOfDiscard: String,
-        private _formOfDiscard: String,
-        private _computer: Number,
-        private _projector: Projector[]
+        private _classroom: Classroom[],
+        private _brand?: String,
+        private _id?: Number,
+        private _count?: Number,
+        private _type?: String,
+        private _note?: String,
+        private _dateOfObtain?: Date,
+        private _serialNumber?: String,
+        private _formOfObtain?: String,
+        private _bankAccount?: String,
+        private _invoiceNumber?: String,
+        private _dateOfDiscard?: Date,
+        private _reasonOfDiscard?: String,
+        private _formOfDiscard?: String,
+        private _computer?: Number,
+        private _projector?: Projector[]
     ) { }
 
     public clone(): Device {
@@ -155,7 +155,7 @@ export class Device {
             let projector: Projector[] = [];
             projector.push(p.clone());
         }
-        return new Device(this._brand, this._id, this._price, this._count, this._name, this._type, classroom, user, this._note, this._dateOfObtain, this._serialNumber,
+        return new Device(this._price, this._name, user, classroom, this._brand, this._id, this._count, this._type, this._note, this._dateOfObtain, this._serialNumber,
             this._formOfObtain, this._bankAccount, this._invoiceNumber, this._dateOfDiscard, this._reasonOfDiscard, this._formOfDiscard, this._computer, projector);
     }
 }
