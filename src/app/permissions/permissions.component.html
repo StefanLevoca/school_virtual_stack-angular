@@ -38,5 +38,5 @@
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#permissionEditModal" (click)="addPermissionButtonClicked()">
   Pridať povolenie
 </button>
-<app-permission-edit (savedPermission)="editedPermissionSaved($event)" [permission]="editedPermission"
-  [actionWithPermission]="action"></app-permission-edit>
+<app-permissions-edit (savedPermission)="editedPermissionSaved($event)" [permission]="editedPermission"
+  [actionWithPermission]="action"></app-permissions-edit>
