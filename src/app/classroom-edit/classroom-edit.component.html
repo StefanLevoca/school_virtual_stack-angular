@@ -1,5 +1,5 @@
 <!-- Modal -->
-<form  #myForm="ngForm" (ngSubmit)="onSubmit()">
+<form  (ngSubmit)="onSubmit()" #myForm="ngForm">
   <div class="modal fade" id="classroomEditModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -15,9 +15,9 @@
           <label>Name: </label> <input class="form-control" type="text" [(ngModel)]="classroom.name" name="classroomName"
             required #nameModel="ngModel">
           <div [hidden]="nameModel.valid" class="alert alert-danger">Meno musí byť vyplnené</div>
-          <label>ID: </label> <input class="form-control" type="number" [(ngModel)]="classroom.id" name="classroomId"
+          <!-- <label>ID: </label> <input class="form-control" type="number" [(ngModel)]="classroom.id" name="classroomId"
             required #idModel="ngModel">
-          <div [hidden]="idModel.valid" class="alert alert-danger">ID musí byť vyplnené</div>
+          <div [hidden]="idModel.valid" class="alert alert-danger">ID musí byť vyplnené</div> -->
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

@@ -14,7 +14,7 @@ export class ClassroomComponent implements OnInit {
   private classroom: Classroom[] = [];
   private selectedClassroom: Classroom;
   private action = 'add';
-  private editedClassroom = new Classroom("", -1);
+  private editedClassroom = new Classroom("");
   private status = 'ok';
 
   constructor(private restService: RestClientService) { }
@@ -47,20 +47,20 @@ export class ClassroomComponent implements OnInit {
           this.status = 'error';
           console.log("chyba komunikacie: " + JSON.stringify(errorMsg));
         });
-    } else {
-      this.restService.saveClassroom(classroom).subscribe(ok => {
-        this.getClassroomsFromServer();
-      },
-        errorMsg => {
-          this.status = 'error';
-          console.log("chyba komunikacie: " + JSON.stringify(errorMsg));
-        });
+      // } else {
+      //   this.restService.saveClassroom(classroom).subscribe(ok => {
+      //     this.getClassroomsFromServer();
+      //   },
+      //     errorMsg => {
+      //       this.status = 'error';
+      //       console.log("chyba komunikacie: " + JSON.stringify(errorMsg));
+      //     });
     }
   }
 
   addClassroomButtonClicked() {
     this.action = 'add';
-    this.editedClassroom = new Classroom("", -1);
+    this.editedClassroom = new Classroom("");
   }
 
   editClassroomClicked(classroom: Classroom) {

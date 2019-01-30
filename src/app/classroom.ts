@@ -13,7 +13,7 @@ export class Classroom {
     }
     constructor(
         private _name: String,
-        private _id: Number
+        private _id?: Number
     ) { }
 
     public clone() {

@@ -10,7 +10,8 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let classroom of classrooms" (click)="selectClassroomClicked(classroom)" (dblclick)="editClassroomClicked(classroom)">
+    <tr *ngFor="let classroom of classrooms"> (click)="selectClassroomClicked(classroom)"
+      (dblclick)="editClassroomClicked(classroom)">
       <td scope="row">{{classroom.name}}</td>
       <td scope="row">{{classroom.id}}</td>
       <td><button class="btn btn-danger" (click)="deleteClassroomClicked(classroom)">X</button></td>
@@ -24,4 +25,5 @@
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#classroomEditModal" (click)="addClassroomButtonClicked()">
   Pridať triedu
 </button>
-<app-classroom-edit (savedClassroom)="editedClassroomSaved($event)" [classroom]="editedClassroom" [actionWithClassroom]="action"></app-classroom-edit>
+<app-classroom-edit>(savedClassroom)="editedClassroomSaved($event)" [classroom]="editedClassroom"
+  [actionWithClassroom]="action"> </app-classroom-edit>

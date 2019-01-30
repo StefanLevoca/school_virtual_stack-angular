@@ -1,4 +1,4 @@
-<!-- Modal -->
+Modal
 <form (ngSubmit)="onSubmit()" #myForm="ngForm">
   <div class="modal fade" id="computerEditModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
@@ -20,22 +20,22 @@
           <div [hidden]="modelModel.valid" class="alert alert-danger">Model musí byť vyplnený</div>
           <label>Drive type: </label><input class="form-control" type="text" [(ngModel)]="computer.driveType" name="computerDriveType"
             required #driveTypeModel="ngModel">
-          <!--          <div [hidden]="driveTypeModel.valid" class="alert alert-danger">Typ disku musí byť vyplnený</div> -->
+          <!--       <div [hidden]="driveTypeModel.valid" class="alert alert-danger">Typ disku musí byť vyplnený</div> -->
           <label>Drive Size: </label><input class="form-control" type="number" [(ngModel)]="computer.driveSize" name="computerDriveSize"
             required #driveSizeModel="ngModel">
-          <!--          <div [hidden]="driveSizeModel.valid" class="alert alert-danger">Veľkosť disku musí byť vyplnená</div> -->
+          <!--       <div [hidden]="driveSizeModel.valid" class="alert alert-danger">Veľkosť disku musí byť vyplnená</div> -->
           <label>Processor: </label><input class="form-control" type="text" [(ngModel)]="computer.processor" name="computerProcessor"
             required #processorModel="ngModel">
-          <!--          <div [hidden]="processorModel.valid" class="alert alert-danger">Procesor musí byť vyplnený</div> -->
+          <!--       <div [hidden]="processorModel.valid" class="alert alert-danger">Procesor musí byť vyplnený</div> -->
           <label>RAM: </label><input class="form-control" type="number" [(ngModel)]="computer.ram" name="computerRam"
             required #ramModel="ngModel">
-          <!--         <div [hidden]="ramModel.valid" class="alert alert-danger">RAM musí byť vyplnená</div> -->
+          <!--      <div [hidden]="ramModel.valid" class="alert alert-danger">RAM musí byť vyplnená</div> -->
           <label>OS: </label><input class="form-control" type="text" [(ngModel)]="computer.os" name="computerOs"
             required #osModel="ngModel">
-          <!--          <div [hidden]="osModel.valid" class="alert alert-danger">OS musí byť vyplneý</div> -->
+          <!--       <div [hidden]="osModel.valid" class="alert alert-danger">OS musí byť vyplneý</div> -->
           <label>Office: </label><input class="form-control" type="text" [(ngModel)]="computer.office" name="computerOffice"
             required #officeModel="ngModel">
-          <!--          <div [hidden]="officeModel.valid" class="alert alert-danger">Kancelária musí byť vyplnená</div> -->
+          <!--     <div [hidden]="officeModel.valid" class="alert alert-danger">Kancelária musí byť vyplnená</div> -->
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
