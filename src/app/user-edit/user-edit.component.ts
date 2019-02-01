@@ -1,36 +1,39 @@
-// import { Component, Output, EventEmitter, Input, OnChanges } from '@angular/core';
-// import { User } from '../user';
+import { Component, Output, EventEmitter, Input, OnChanges } from '@angular/core';
+import { User } from '../user';
+import { UserComponent } from '../user/user.component';
+import { Action } from 'rxjs/internal/scheduler/Action';
 
-// declare var $: any;
 
-// @Component({
-//   selector: 'app-user-edit',
-//   templateUrl: './user-edit.component.html',
-//   styleUrls: ['./user-edit.component.css']
-// })
-// export class UserEditComponent implements OnChanges {
-//   @Input() private user: User;
-//   @Input() private actionWithUser: string;
-//   @Output() savedUser = new EventEmitter<User>();
-//   constructor() { }
+declare var $: any;
 
-//   ngOnChanges() {
-//   }
+@Component({
+  selector: 'app-user-edit',
+  templateUrl: './user-edit.component.html',
+  styleUrls: ['./user-edit.component.css']
+})
+export class UserEditComponent implements OnChanges {
+  @Input() editedUser: User;
+  @Output() editedUserPipe = new EventEmitter<User>();
+  @Input() action: string;
+  constructor() { }
 
-//   get actualUser(): string {
-//     return JSON.stringify(this.user);
-//   }
+  ngOnChanges() {
+  }
 
-//   get title(): string {
-//     if (this.actionWithUser == 'add') {
-//       return 'Pridávanie používateľa';
-//     } else {
-//       return 'Editácia používateľa';
-//     }
-//   }
+  get actualUser(): string {
+    return JSON.stringify(this.editedUser);
+  }
 
-//   onSubmit() {
-//     this.savedUser.emit(this.user);
-//     $('#userEditModal').modal('hide');
-//   }
-// }
+  get title(): string {
+    if (this.action == 'add') {
+      return 'Pridávanie používateľa';
+    } else {
+      return 'Editácia používateľa';
+    }
+  }
+
+  onSubmit() {
+    this.editedUserPipe.emit(this.editedUser);
+    $('#userEditModal').modal('hide');
+  }
+}

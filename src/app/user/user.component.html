@@ -1,7 +1,7 @@
 <div *ngIf="status=='error'" class="alert alert-danger" role="alert">
-  Chyba komunikácie
+  Chyba komunikácie, {{user}}
 </div>
-<h2>{{title}}</h2>
+<h2>Zoznam používateľov</h2>
 <table class="table table-hover">
   <thead>
     <tr>
@@ -11,8 +11,6 @@
       <th scope="col">Surname</th>
       <th scope="col">Username</th>
       <th scope="col">Password</th>
-      <th scope="col">Permissions</th>
-      <th scope="col">My rights</th>
     </tr>
   </thead>
   <tbody>
@@ -23,23 +21,12 @@
       <td scope="row">{{user.surname}}</td>
       <td scope="row">{{user.username}}</td>
       <td scope="row">{{user.password}}</td>
-      <td scope="row">{{user.permissions}}</td>
-      <td><span *ngFor="let permission of user.permissions">{{permission.rightUserAdministration}}, </span></td>
-      <td><button class="btn btn-danger" (click)="deleteUserClicked(u)">X</button></td>
+      <td><button class="btn btn-danger" (click)="deleteUserClicked(user)">X</button></td>
     </tr>
   </tbody>
 </table>
-<p *ngIf="selected">Selected:
-  {{selected.id}}
-  {{selected.degree}}
-  {{selected.name}}
-  {{selected.surname}}
-  {{selected.username}}
-  {{selected.password}}
-  {{selected.permissions}}
-  {{selected.myRights}}
-</p>
+
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#userEditModal" (click)="addUserButtonClicked()">
   Pridať používateľa
 </button>
-<app-user-edit (savedUser)="editedUserSaved($event)" [user]="editedUser" [actionWithUser]="action"></app-user-edit>
+<app-user-edit (editedUserPipe)="editedUserSaved($event)" [action]="action" [editedUser]="user"></app-user-edit>

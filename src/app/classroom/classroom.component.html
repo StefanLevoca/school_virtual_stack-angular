@@ -1,3 +1,4 @@
+
 <div *ngIf="status=='error'" class="alert alert-danger" role="alert">
   Chyba komunikácie
 </div>
@@ -25,5 +26,4 @@
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#classroomEditModal" (click)="addClassroomButtonClicked()">
   Pridať triedu
 </button>
-<app-classroom-edit>(savedClassroom)="editedClassroomSaved($event)" [classroom]="editedClassroom"
-  [actionWithClassroom]="action"> </app-classroom-edit>
+<app-classroom-edit (savedClassroom)="editedClassroomSaved($event)" [classroom]="classroom" [actionWithClassroom]="action"></app-classroom-edit>

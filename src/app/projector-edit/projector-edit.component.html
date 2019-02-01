@@ -10,7 +10,6 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <p>Hodnota modelu: {{actualProjector}}</p>
         <div class="modal-body form-group">
           <label>Brand: </label> <input class="form-control" type="text" [(ngModel)]="projector.brand" name="projectorBrand"
             required #brandModel="ngModel">
@@ -20,13 +19,20 @@
           <div [hidden]="modelModel.valid" class="alert alert-danger">Model musí byť vyplnený</div>
           <label>Light output: </label><input class="form-control" type="number" [(ngModel)]="projector.lightOutput"
             name="projectorLightOutput" required #lightOutputModel="ngModel">
-          <!--          <div [hidden]="lightOutputModel.valid" class="alert alert-danger">Svetelný tok musí byť vyplnený</div> -->
-          <label>Projector range: </label><input class="form-control" type="text" [(ngModel)]="projector.projectorRange"
-            name="projectorProjectorRange" required #projectorRangeModel="ngModel">
-          <!--           <div [hidden]="projectorRangeModel.valid" class="alert alert-danger">Dosah projektora musí byť vyplnený</div> -->
-          <label>Interactive: </label><input class="form-control" type="number" [(ngModel)]="projector.interactive"
-            name="projectroInteractive" required #interactiveModel="ngModel">
-          <!--           <div [hidden]="interactiveModel.valid" class="alert alert-danger">Interaktívnosť musí byť vyplnená</div> -->
+                    <div [hidden]="lightOutputModel.valid" class="alert alert-danger">Svetelný tok musí byť vyplnený</div> 
+          <label>Projector range: </label>
+            <select class="form-control" [(ngModel)]="projector.projectorRange" name="projectorProjectorRange" required #projectorRangeModel="ngModel">
+                <option value="Dlhý">Dlhý</option>
+                <option value="Krátky">Krátky</option>
+                <option value="Ultra krátky">Ultra krátky</option>
+          </select>
+                     <div [hidden]="projectorRangeModel.valid" class="alert alert-danger">Dosah projektora musí byť vyplnený</div> 
+          <label>Interactive: </label>
+            <select class="form-control" [(ngModel)]="projector.interactive" name="projectorInteractive" required #interactiveModel="ngModel">
+                <option value="true">true</option>
+                <option value="false">false</option>
+          </select>
+                    <div [hidden]="interactiveModel.valid" class="alert alert-danger">Interaktívnosť musí byť vyplnená</div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

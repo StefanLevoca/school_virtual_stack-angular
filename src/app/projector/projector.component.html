@@ -19,17 +19,11 @@
       <td scope="row">{{projector.lightOutput}}</td>
       <td scope="row">{{projector.projectorRange}}</td>
       <td scope="row">{{projector.interactive}}</td>
-      <td><button class="btn btn-danger" (click)="deleteProjectorClicked(u)">X</button></td>
+      <td><button class="btn btn-danger" (click)="deleteProjectorClicked(projector)">X</button></td>
     </tr>
   </tbody>
 </table>
-<p *ngIf="selected">Selected:
-  {{selected.brand}}
-  {{selected.model}}
-  {{selected.lightOutput}}
-  {{selected.projectorRange}}
-  {{selected.interactive}}
-</p>
+
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#projectorEditModal" (click)="addProjectorButtonClicked()">
   Pridať projektor
 </button>

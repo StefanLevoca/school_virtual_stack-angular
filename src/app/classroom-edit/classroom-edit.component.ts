@@ -17,8 +17,8 @@ export class ClassroomEditComponent implements OnChanges {
   ngOnChanges() {
   }
 
-  get actualClassroom(): string {
-    return JSON.stringify(this.classroom);
+  get actualClassroom() {
+    return this.classroom;
   }
 
   get title(): string {

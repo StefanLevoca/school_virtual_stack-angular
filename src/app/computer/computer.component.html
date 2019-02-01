@@ -5,6 +5,7 @@
 <table class="table table-hover">
   <thead>
     <tr>
+      <th scope="col">Id</th>
       <th scope="col">Brand</th>
       <th scope="col">Model</th>
       <th scope="col">Drive type</th>
@@ -17,6 +18,7 @@
   </thead>
   <tbody>
     <tr *ngFor="let computer of computers" (click)="selectComputerClicked(computer)" (dblclick)="editComputerClicked(computer)">
+      <td scope="row">{{computer.id}}</td>
       <td scope="row">{{computer.brand}}</td>
       <td scope="row">{{computer.model}}</td>
       <td scope="row">{{computer.driveType}}</td>
@@ -31,6 +33,7 @@
 </table>
 <p *ngIf="selected">Selected:
   {{selected.brand}}
+  {{selected.brand}}
   {{selected.model}}
   {{selected.driveType}}
   {{selected.driveSize}}
@@ -42,4 +45,4 @@
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#computerEditModal" (click)="addComputerButtonClicked()">
   Pridať počítač
 </button>
-<app-computer-edit (savedDevice)="editedComputerSaved($event)" [computer]="editedComputer" [actionWithComputer]="action"></app-computer-edit>
+<app-computer-edit (savedComputer)="editedComputerSaved($event)" [computer]="editedComputer" [actionWithComputer]="action"></app-computer-edit>

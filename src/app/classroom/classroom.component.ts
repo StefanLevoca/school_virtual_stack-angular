@@ -11,7 +11,7 @@ declare var $: any;
 })
 export class ClassroomComponent implements OnInit {
   private title: string = "Zoznam tried";
-  private classroom: Classroom[] = [];
+  private classrooms: Classroom[] = [];
   private selectedClassroom: Classroom;
   private action = 'add';
   private editedClassroom = new Classroom("");
@@ -19,14 +19,20 @@ export class ClassroomComponent implements OnInit {
 
   constructor(private restService: RestClientService) { }
 
+
+
   ngOnInit() {
     this.getClassroomsFromServer();
+  }
+
+  get classroom(){
+    return this.editedClassroom;
   }
 
   getClassroomsFromServer() {
     let pipe: Observable<Classroom[]> = this.restService.getClassrooms();
     pipe.subscribe(classroomsFromPipe => {
-      this.classroom = classroomsFromPipe
+      this.classrooms = classroomsFromPipe
     },
       errorMsg => {
         this.status = 'error';

@@ -149,7 +149,7 @@ export class Device {
         }
         for (let u of this._responsiblePerson) {
             let user: User[] = [];
-            user.push(u.clone());
+            user.push(JSON.parse(JSON.stringify(u)));
         }
         for (let p of this._projector) {
             let projector: Projector[] = [];
