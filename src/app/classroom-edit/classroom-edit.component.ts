@@ -24,8 +24,8 @@ export class ClassroomEditComponent implements OnChanges {
   get title(): string {
     if (this.actionWithClassroom == 'add') {
       return 'Pridávanie triedy';
-    // } else {
-    //   return 'Editácia triedy';
+    } else {
+      return 'Editácia triedy';
     }
   }
 

@@ -11,7 +11,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let classroom of classrooms"> (click)="selectClassroomClicked(classroom)"
+    <tr *ngFor="let classroom of classrooms" (click)="selectClassroomClicked(classroom)"
       (dblclick)="editClassroomClicked(classroom)">
       <td scope="row">{{classroom.name}}</td>
       <td scope="row">{{classroom.id}}</td>

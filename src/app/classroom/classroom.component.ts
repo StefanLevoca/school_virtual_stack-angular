@@ -53,14 +53,14 @@ export class ClassroomComponent implements OnInit {
           this.status = 'error';
           console.log("chyba komunikacie: " + JSON.stringify(errorMsg));
         });
-      // } else {
-      //   this.restService.saveClassroom(classroom).subscribe(ok => {
-      //     this.getClassroomsFromServer();
-      //   },
-      //     errorMsg => {
-      //       this.status = 'error';
-      //       console.log("chyba komunikacie: " + JSON.stringify(errorMsg));
-      //     });
+      } else {
+        this.restService.saveClassroom(classroom).subscribe(ok => {
+          this.getClassroomsFromServer();
+        },
+          errorMsg => {
+            this.status = 'error';
+            console.log("chyba komunikacie: " + JSON.stringify(errorMsg));
+          });
     }
   }
 
